@@ -379,7 +379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalRotationSpeed: 1
   verticalRotationSpeed: 1
-  fireRate: 1
+  verticalMaxClamp: 45
+  verticalMinClamp: -10
   cannonballPrefab: {fileID: 1478430519582382, guid: 4d5c394983bca174db9f179ba71be371,
     type: 2}
   cannonPivot: {fileID: 4908334839277488}

@@ -8,12 +8,11 @@ public class CannonController : MonoBehaviour
 	[Header("Cannon Properties")]
 	[SerializeField] private float horizontalRotationSpeed = 1.0f; //the speed of Cannon moving left and right
 	[SerializeField] private float verticalRotationSpeed = 1.0f;  //the speed of Cannon moving up and down
-	[SerializeField] private float fireRate = 1.0f; //how many cannons spawned per second
 	
 	[Header("References and Prefabs")]
-	[SerializeField] private GameObject cannonballPrefab;
-	[SerializeField] private Transform cannonPivot;
-	[SerializeField] private Transform spawnPoint;
+	[SerializeField] private GameObject cannonballPrefab; //This is the gameobject that will shoot out of the cannon
+	[SerializeField] private Transform cannonPivot; //This is what is going to be rotated the user controls
+	[SerializeField] private Transform spawnPoint; //The position the cannonballPrefab will be spawned
 
 	public enum playerInputOption { Horizontal, Vertical, Space }
 	[Header("Player Controls")]
@@ -27,7 +26,7 @@ public class CannonController : MonoBehaviour
 		CannonFireUpdate();
 	}
 
-	//Calculates how much to rotate the cannon pivot and in which direction
+	//Calculates how much to rotate the cannon pivot and in the proper direction
 	private void CannonRotationUpdate()
 	{
 		float horizontalValue = Input.GetAxis(horizontalAxisInput.ToString()) * horizontalRotationSpeed;
@@ -35,6 +34,7 @@ public class CannonController : MonoBehaviour
 		cannonPivot.eulerAngles += new Vector3(verticalValue, horizontalValue, 0.0f);
 	}
 
+	//Handles the spawning of cannonballs
 	private void CannonFireUpdate()
 	{
 		if(Input.GetKeyDown(CannonFire))
