@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 4779224104183780}
   - component: {fileID: 33857788549502346}
   - component: {fileID: 23865852437866154}
-  - component: {fileID: 136497293220947462}
   m_Layer: 0
   m_Name: Cannon_Barrel
   m_TagString: Untagged
@@ -56,11 +55,25 @@ GameObject:
   - component: {fileID: 4908334839277488}
   - component: {fileID: 33310710465201654}
   - component: {fileID: 23148696166898546}
-  - component: {fileID: 135277860455336494}
   m_Layer: 0
   m_Name: Cannon_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1521343008932660
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4678224683722412}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -90,7 +103,6 @@ GameObject:
   - component: {fileID: 4264948140976614}
   - component: {fileID: 33196645591582054}
   - component: {fileID: 23747736526656602}
-  - component: {fileID: 65837173323511582}
   m_Layer: 0
   m_Name: Cannon_Base
   m_TagString: Untagged
@@ -126,6 +138,19 @@ Transform:
   m_Father: {fileID: 4051146589378188}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4678224683722412
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521343008932660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4779224104183780}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4779224104183780
 Transform:
   m_ObjectHideFlags: 1
@@ -135,7 +160,8 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.21, z: -0.418}
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.25}
-  m_Children: []
+  m_Children:
+  - {fileID: 4678224683722412}
   m_Father: {fileID: 4908334839277488}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -333,18 +359,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1089253497091748}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65837173323511582
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1598562110901550}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!81 &81621184388466312
 AudioListener:
   m_ObjectHideFlags: 1
@@ -366,32 +380,10 @@ MonoBehaviour:
   horizontalRotationSpeed: 1
   verticalRotationSpeed: 1
   fireRate: 1
+  cannonballPrefab: {fileID: 1478430519582382, guid: 4d5c394983bca174db9f179ba71be371,
+    type: 2}
   cannonPivot: {fileID: 4908334839277488}
+  spawnPoint: {fileID: 4678224683722412}
   horizontalAxisInput: 0
   verticalAxisInput: 1
-  CannonFire: 2
---- !u!135 &135277860455336494
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361197841470580}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136497293220947462
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1089253497091748}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  CannonFire: 32
