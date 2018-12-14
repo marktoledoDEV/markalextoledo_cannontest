@@ -6,13 +6,29 @@ using UnityEngine;
 public class CannonController : MonoBehaviour 
 {
 	[Header("Cannon Properties")]
-	[SerializeField] private float horizontalRotationSpeed; //the speed of Cannon moving left and right
-	[SerializeField] private float verticalRotationSpeed;  //the speed of Cannon moving up and down
-	[SerializeField] private float fireRate; //how many cannons spawned per second
+	[SerializeField] private float horizontalRotationSpeed = 1.0f; //the speed of Cannon moving left and right
+	[SerializeField] private float verticalRotationSpeed = 1.0f;  //the speed of Cannon moving up and down
+	[SerializeField] private float fireRate = 1.0f; //how many cannons spawned per second
+	
+	[Header("References and Prefabs")]
+	[SerializeField] private Transform cannonPivot;
 
 	public enum playerInputOption { Horizontal, Vertical, Space }
 	[Header("Player Controls")]
-	[SerializeField] private playerInputOption horizontalAxisInput;
-	[SerializeField] private playerInputOption verticalAxisInput;
-	[SerializeField] private playerInputOption CannonFire;
+	[SerializeField] private playerInputOption horizontalAxisInput; //the input used to control horizontal movement
+	[SerializeField] private playerInputOption verticalAxisInput; //the input used to control vertical movemnet
+	[SerializeField] private KeyCode CannonFire; //the input to control firing the cannon
+
+	private void Update()
+	{
+		CannonRotationUpdate();
+	}
+
+	//Calculates how much to rotate the cannon pivot and in which direction
+	private void CannonRotationUpdate()
+	{
+		float horizontalValue = Input.GetAxis(horizontalAxisInput.ToString()) * horizontalRotationSpeed;
+		float verticalValue = Input.GetAxis(verticalAxisInput.ToString()) * verticalRotationSpeed;
+		cannonPivot.eulerAngles += new Vector3(verticalValue, horizontalValue, 0.0f);
+	}
 }
