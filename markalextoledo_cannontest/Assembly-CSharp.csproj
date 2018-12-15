@@ -61,6 +61,7 @@
      <Compile Include="Assets\Script\StateMachine\State.cs" />
      <Compile Include="Assets\Script\Targets\BaseHordeState.cs" />
      <Compile Include="Assets\Script\Targets\BaseTarget.cs" />
+     <Compile Include="Assets\Script\Targets\HordeAttackState.cs" />
      <Compile Include="Assets\Script\Targets\HordeMovingState.cs" />
      <Compile Include="Assets\Script\Targets\HordeTarget.cs" />
  <Reference Include="UnityEditor.StandardEvents">

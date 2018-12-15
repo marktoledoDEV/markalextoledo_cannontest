@@ -34,7 +34,7 @@ public class CannonBall : MonoBehaviour
 	{
 		OnTargetCollision(coll);
 
-		Destroy(gameObject);
+
 	}
 
 	//When the cannonball collides and tries to find if the other Collider has a target script.
@@ -45,7 +45,7 @@ public class CannonBall : MonoBehaviour
 		if(target != null)
 		{
 			target.TakeDamage(damage);
-			
+			Destroy(gameObject);
 		}
 	}
 

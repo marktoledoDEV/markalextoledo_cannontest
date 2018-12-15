@@ -7,14 +7,17 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class HordeTarget : BaseTarget 
 {
-	[Header("Horde Specific Target")]
-	public int hordeDamage = 1;
+	[Header("Horde Specific Properties")]
+	public int hordeDamage = 1; //how much damage the horde will deal when it explodes.
+	public float blastRadius = 10.0f; //how big the the explosion will be
+	public float distanceFromCannon = 8.0f; //how far the target needs to be in order explode
+	public float blowUpTime = 5.0f; //the delay before the it will blow up
 
 	[SerializeField] private float hordeMoveSpeed = 5.0f;
 
 	//Components Required
 	private NavMeshAgent nmAgent;
-	public NavMeshAgent hordenavMeshAgent { get{ return nmAgent; } }
+	public NavMeshAgent hordeNavMeshAgent { get{ return nmAgent; } }
 
 	//References Needed
 	private Transform playerCannon; // will move towards the cannon
@@ -26,6 +29,8 @@ public class HordeTarget : BaseTarget
 		playerCannon = GameManager.instance.player.transform;
 
 		nmAgent = GetComponent<NavMeshAgent>();
+		nmAgent.speed = hordeMoveSpeed;
+		nmAgent.stoppingDistance = distanceFromCannon;
 		
 	}
 

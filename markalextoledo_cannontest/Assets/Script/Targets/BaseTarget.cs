@@ -12,6 +12,7 @@ public class BaseTarget : MonoBehaviour
 
 	//Components from gameObject required
 	protected Rigidbody targetRigidbody;
+	public Rigidbody TargetRigidBody { get { return targetRigidbody; } }
 
 	private void Start()
 	{
@@ -33,7 +34,7 @@ public class BaseTarget : MonoBehaviour
 		}
 	}
 
-	protected virtual void TargetDies()
+	public virtual void TargetDies()
 	{
 		Destroy(gameObject);
 	}

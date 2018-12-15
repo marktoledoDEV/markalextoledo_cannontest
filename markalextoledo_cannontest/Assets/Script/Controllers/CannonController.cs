@@ -6,7 +6,7 @@ using UnityEngine;
 public class CannonController : MonoBehaviour 
 {
 	[Header("Cannon Properties")]
-	public int health = 10; //the amount of damage the cannon can take before losing;
+	[SerializeField] private int health = 10; //the amount of damage the cannon can take before losing;
 
 	[SerializeField] private float horizontalRotationSpeed = 1.0f; //the speed of Cannon moving left and right
 	[SerializeField] private float verticalRotationSpeed = 1.0f;  //the speed of Cannon moving up and down
@@ -49,5 +49,10 @@ public class CannonController : MonoBehaviour
 		{
 			Instantiate(cannonballPrefab,spawnPoint.position, cannonPivot.rotation);
 		}
+	}
+
+	public void TakeDamage(int damage)
+	{
+		health -= damage;
 	}
 }

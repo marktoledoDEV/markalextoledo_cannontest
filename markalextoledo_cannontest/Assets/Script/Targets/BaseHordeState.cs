@@ -7,11 +7,9 @@ using UnityEngine;
 //The HordeTarget state names
 public enum HordeStates { Moving, BlowUp }
 
-public class BaseHordeState : State
+//Setups dependacies for all HordeTarget States
+public abstract class BaseHordeState : State
 {
-	protected HordeStates hordeStateName;
-	public override string stateName { get { return hordeStateName.ToString(); } }
-
 	//References
 	protected HordeTarget hordeModel;
 
@@ -21,6 +19,7 @@ public class BaseHordeState : State
 		if(hordeModel == null)
 		{
 			Debug.LogError("HordeModel is null");
+			return;
 		}
 	}
 	
