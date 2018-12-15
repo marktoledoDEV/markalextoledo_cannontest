@@ -29,6 +29,7 @@ public class CannonController : MonoBehaviour
 	//Calculates how much to rotate the cannon pivot and in the proper direction
 	private void CannonRotationUpdate()
 	{
+		//Calculate the how much to rotate the cannonPivot and apply it to the cannonPivot
 		float horizontalValue = Input.GetAxis(horizontalAxisInput.ToString()) * horizontalRotationSpeed;
 		float verticalValue = Input.GetAxis(verticalAxisInput.ToString()) * verticalRotationSpeed;
 		cannonPivot.eulerAngles += new Vector3(verticalValue, horizontalValue, 0.0f);

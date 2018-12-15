@@ -7,6 +7,8 @@ using UnityEngine;
 public class CannonBall : MonoBehaviour 
 {
 	[Header("CannonBall Properties")]
+	public int damage = 1;
+
 	[SerializeField] private float magnitude; //the force applied to the rigidbody when spawned
 	[SerializeField] private float deSpawnTime; //the time it takes for the cannon to despawn once it spawned
 
@@ -18,6 +20,7 @@ public class CannonBall : MonoBehaviour
 
 	private void Start()
 	{
+		//Gets the gameObject's rigidbody and apply a forward force
 		rbProjectile = gameObject.GetComponent<Rigidbody>();
 		rbProjectile.AddForce(transform.forward * magnitude);
 	}
@@ -25,6 +28,25 @@ public class CannonBall : MonoBehaviour
 	private void Update()
 	{
 		DespawnTimerUpdate();
+	}
+
+	private void OnCollisionEnter(Collision coll)
+	{
+		OnTargetCollision(coll);
+
+		Destroy(gameObject);
+	}
+
+	//When the cannonball collides and tries to find if the other Collider has a target script.
+	//if it does the target will take damage.
+	private void OnTargetCollision(Collision collTarget)
+	{
+		BaseTarget target = collTarget.gameObject.GetComponent<BaseTarget>();
+		if(target != null)
+		{
+			target.TakeDamage(damage);
+			
+		}
 	}
 
 	//Destroys gameobject after a certain amount of timer
