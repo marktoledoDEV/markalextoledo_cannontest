@@ -6,6 +6,8 @@ using UnityEngine;
 public class CannonController : MonoBehaviour 
 {
 	[Header("Cannon Properties")]
+	public int health = 10; //the amount of damage the cannon can take before losing;
+
 	[SerializeField] private float horizontalRotationSpeed = 1.0f; //the speed of Cannon moving left and right
 	[SerializeField] private float verticalRotationSpeed = 1.0f;  //the speed of Cannon moving up and down
 	
@@ -22,7 +24,7 @@ public class CannonController : MonoBehaviour
 
 	private void Awake()
 	{
-		GameManager.instance.player = this;
+		GameManager.instance.player = this; //give reference to itself so other classes can have an easy way of accessing the player
 	}
 
 	private void Update()

@@ -15,6 +15,12 @@ public class BaseTarget : MonoBehaviour
 
 	private void Start()
 	{
+		InitializeTarget();
+	}
+
+	//Setup Target dependacies
+	protected virtual void InitializeTarget()
+	{
 		targetRigidbody = gameObject.GetComponent<Rigidbody>();
 	}
 

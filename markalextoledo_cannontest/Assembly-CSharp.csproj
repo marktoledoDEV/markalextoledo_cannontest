@@ -53,9 +53,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\BaseTarget.cs" />
-     <Compile Include="Assets\Script\CannonBall.cs" />
-     <Compile Include="Assets\Script\CannonController.cs" />
+     <Compile Include="Assets\Script\Controllers\CannonBall.cs" />
+     <Compile Include="Assets\Script\Controllers\CannonController.cs" />
+     <Compile Include="Assets\Script\Singletons\GameManager.cs" />
+     <Compile Include="Assets\Script\Singletons\Singleton.cs" />
+     <Compile Include="Assets\Script\StateMachine\BaseStateMachine.cs" />
+     <Compile Include="Assets\Script\StateMachine\State.cs" />
+     <Compile Include="Assets\Script\Targets\BaseHordeState.cs" />
+     <Compile Include="Assets\Script\Targets\BaseTarget.cs" />
+     <Compile Include="Assets\Script\Targets\HordeMovingState.cs" />
+     <Compile Include="Assets\Script\Targets\HordeTarget.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/Work and Other Documents/Projects/markalextoledo_cannontest/markalextoledo_cannontest/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
