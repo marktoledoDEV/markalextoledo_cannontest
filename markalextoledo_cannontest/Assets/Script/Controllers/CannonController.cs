@@ -20,6 +20,11 @@ public class CannonController : MonoBehaviour
 	[SerializeField] private playerInputOption verticalAxisInput; //the input used to control vertical movemnet
 	[SerializeField] private KeyCode CannonFire; //the input to control firing the cannon
 
+	private void Awake()
+	{
+		GameManager.instance.player = this;
+	}
+
 	private void Update()
 	{
 		CannonRotationUpdate();
