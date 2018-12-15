@@ -15,6 +15,7 @@ public abstract class BaseHordeState : State
 
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
+		//Get the HordeTarget object for future use
 		hordeModel = animator.gameObject.GetComponent<HordeTarget>();
 		if(hordeModel == null)
 		{
