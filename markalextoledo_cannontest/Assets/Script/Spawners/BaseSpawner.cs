@@ -22,7 +22,7 @@ public abstract class BaseSpawner : MonoBehaviour
 	{
 		return Instantiate(spawneePrefab,position, rotation);
 	}
-		public GameObject Spawn(Vector3 position, Quaternion rotation, Transform parent)
+	public GameObject Spawn(Vector3 position, Quaternion rotation, Transform parent)
 	{
 		return Instantiate(spawneePrefab,position, rotation,parent);
 	}

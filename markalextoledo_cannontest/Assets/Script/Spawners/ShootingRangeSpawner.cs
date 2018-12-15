@@ -20,31 +20,39 @@ public class ShootingRangeSpawner : BaseSpawner
 		GenerateShootingRange();
 	}
 
+	//spawns the spawneePrefab in random location using the SpawnGrid as a guide
 	public void GenerateShootingRange()
 	{
 		for(int i = 0; i < spawnAmount; i++)
 		{
+			//while loop will keep trying randomly generating indexes to find an element
+			//in the 2D array that is false false
 			bool foundUnusedPosition = false;
 			while(foundUnusedPosition == false)
 			{
 				int rndHeight = Random.Range(0,gridHeight);
 				int rndWidth = Random.Range(0,gridWidth);
 
+
 				if(!SpawnGrid[rndWidth,rndHeight])
 				{
+					//once a false element is found in the SpawnGrid is found,
+					//spawn a Target based on the two random indexes
 					float xPos = rndWidth + spawnSpacing;
 					float yPos = rndHeight + spawnSpacing;
 					Vector3 spawnPosition = new Vector3(xPos, yPos, 0.0f);
 					GameObject spawnedTarget = Spawn(spawnPosition, transform.rotation,transform);
-					spawnedTarget.transform.localPosition = spawnPosition;
+					spawnedTarget.transform.localPosition = spawnPosition; //this line will make sure the target is spawned relative to the spawner gameObject
 					
+					//once completed this element in the SpawnGrid will marked as true and should not be used again
 					SpawnGrid[rndWidth,rndHeight] = true;
 					foundUnusedPosition = SpawnGrid[rndWidth,rndHeight];
 				}
 			}
 		}
 	}
-
+	
+	//create a fresh new SpawnGrid to use
 	private void ResetSpawnGrid()
 	{
 		SpawnGrid = new bool[gridWidth, gridHeight];
