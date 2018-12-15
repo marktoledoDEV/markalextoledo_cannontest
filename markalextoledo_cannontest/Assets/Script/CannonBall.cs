@@ -19,7 +19,7 @@ public class CannonBall : MonoBehaviour
 	private void Start()
 	{
 		rbProjectile = gameObject.GetComponent<Rigidbody>();
-		rbProjectile.AddRelativeForce(transform.forward * magnitude);
+		rbProjectile.AddForce(transform.forward * magnitude);
 	}
 
 	private void Update()

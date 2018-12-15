@@ -37,9 +37,9 @@ public class CannonController : MonoBehaviour
 	//Handles the spawning of cannonballs
 	private void CannonFireUpdate()
 	{
-		if(Input.GetKeyDown(CannonFire))
+		if(Input.GetKeyDown(CannonFire))  
 		{
-			Instantiate(cannonballPrefab,spawnPoint.position, spawnPoint.rotation);
+			Instantiate(cannonballPrefab,spawnPoint.position, cannonPivot.rotation);
 		}
 	}
 }
