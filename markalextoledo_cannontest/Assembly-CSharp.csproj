@@ -57,13 +57,15 @@
      <Compile Include="Assets\Script\Controllers\CannonController.cs" />
      <Compile Include="Assets\Script\Singletons\GameManager.cs" />
      <Compile Include="Assets\Script\Singletons\Singleton.cs" />
+     <Compile Include="Assets\Script\Spawners\BaseSpawner.cs" />
+     <Compile Include="Assets\Script\Spawners\ShootingRangeSpawner.cs" />
      <Compile Include="Assets\Script\StateMachine\BaseStateMachine.cs" />
      <Compile Include="Assets\Script\StateMachine\State.cs" />
      <Compile Include="Assets\Script\Targets\BaseHordeState.cs" />
      <Compile Include="Assets\Script\Targets\BaseTarget.cs" />
-     <Compile Include="Assets\Script\Targets\HordeAttackState.cs" />
-     <Compile Include="Assets\Script\Targets\HordeMovingState.cs" />
-     <Compile Include="Assets\Script\Targets\HordeTarget.cs" />
+     <Compile Include="Assets\Script\Targets\HordeScripts\HordeAttackState.cs" />
+     <Compile Include="Assets\Script\Targets\HordeScripts\HordeMovingState.cs" />
+     <Compile Include="Assets\Script\Targets\HordeScripts\HordeTarget.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/Work and Other Documents/Projects/markalextoledo_cannontest/markalextoledo_cannontest/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
