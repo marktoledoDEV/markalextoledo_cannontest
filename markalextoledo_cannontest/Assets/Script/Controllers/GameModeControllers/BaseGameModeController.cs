@@ -49,7 +49,7 @@ public abstract class BaseGameModeController<tGameModel> : MonoBehaviour, IBaseG
         gameObject.SetActive(true);
     }  
 
-    public abstract void UpdateController(); //runs the game logic of the gameModeController
+    protected abstract void UpdateController(); //runs the game logic of the gameModeController
 
     protected virtual void DesetupController()
     {

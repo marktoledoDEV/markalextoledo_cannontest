@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-public class HordeGameModeModel : MonoBehaviour
+public class HordeGameModeModel : BaseGameModeModel
 {
-    // Start is called before the first frame update
-    void Start()
+    //Revertable Values
+    [HideInInspector] public int TargetsKillGoal = 0; //The Amount of targets killed to win the gamemode
+    [HideInInspector] public int TargetKilled = 0; //the amount of targets the player has killed so far
+
+    public override void ResetGameModel()
     {
-        
+        base.ResetGameModel();
+        TargetKilled = 0;
+        TargetsKillGoal = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    [MenuItem("Assets/Create/Create Horde Game Mode Model")]
+    public static void CreateHordeGameModeModel()
     {
-        
+        BaseGameModeModel.CreateGameModeModel<HordeGameModeModel>();
     }
 }

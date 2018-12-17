@@ -24,7 +24,7 @@ public class ShootingPracticeGameModeController : BaseGameModeController<Shootin
 
         GameModel.gameTimer = GameModel.TimeGiven;
     }
-    public override void UpdateController()
+    protected override void UpdateController()
     {
         if(!GameModel.isDone)
         {

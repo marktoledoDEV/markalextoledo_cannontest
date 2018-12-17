@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
 
 	protected void Start()
 	{
-		ChangeGameModes(GameModesType.ShootingPractice);	
+		ChangeGameModes(GameModesType.Horde);	
 	}
 
 	protected override void SingletonAwake()

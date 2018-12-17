@@ -17,11 +17,18 @@ public class BaseTarget : MonoBehaviour
 	private void Start()
 	{
 		InitializeTarget();
+		if(targetSpawnedSubscriber != null)
+		{
+			targetSpawnedSubscriber();
+		}
 	}
 
 	private void OnDestroy()
 	{
-		targetDestroyedSubscriber();
+		if(targetDestroyedSubscriber != null)
+		{
+			targetDestroyedSubscriber();
+		}
 	}
 
 	//Setup Target dependacies
@@ -39,7 +46,22 @@ public class BaseTarget : MonoBehaviour
 		}
 	}
 
-	//Other classes can subscribe to when the target is destroyed
+	//Other classes can subscribe to when the target is spawned
+	public delegate void onTargetSpawned();
+	private onTargetSpawned targetSpawnedSubscriber;
+	public onTargetSpawned TargetSpawnedSubscriber 
+	{
+		get
+		{ 
+			return targetSpawnedSubscriber; 
+		}
+		set
+		{
+			targetSpawnedSubscriber += value;
+		}
+	}
+
+	//Other classes can subscribe actions to it, and is called when the target is destroyed
 	public delegate void onTargetDestroyed();
 	private onTargetDestroyed targetDestroyedSubscriber;
 	public onTargetDestroyed TargetDestroyedSubscriber 
