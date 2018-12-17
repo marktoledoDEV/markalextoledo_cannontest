@@ -10,7 +10,7 @@ public class MenuCanvasGroup : MonoBehaviour
 	public MenuStateName stateName;
 
 	//Components
-	public CanvasGroup canvasGroup;
+	[HideInInspector]public CanvasGroup canvasGroup;
 
 	//Unity Methods
 	private void Awake()

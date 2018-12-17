@@ -25,7 +25,9 @@ public class MenuState : State
 }
 public enum MenuStateName
 {
-	Start,
-	Settings,
-	Game
+	MainMenu,
+	HordeMode,
+	ShootingPractiseMode,
+	Win,
+	Lose
 }
