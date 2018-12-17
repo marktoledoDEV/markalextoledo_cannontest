@@ -56,7 +56,10 @@
      <Compile Include="Assets\Script\Controllers\CannonBall.cs" />
      <Compile Include="Assets\Script\Controllers\CannonController.cs" />
      <Compile Include="Assets\Script\Controllers\GameModeControllers\BaseGameModeController.cs" />
+     <Compile Include="Assets\Script\Controllers\GameModeControllers\ShootingPracticeGameModeController.cs" />
      <Compile Include="Assets\Script\Models\GameModeModels\BaseGameModel.cs" />
+     <Compile Include="Assets\Script\Models\GameModeModels\HordeGameModeModel.cs" />
+     <Compile Include="Assets\Script\Models\GameModeModels\ShootingPracticeGameModel.cs" />
      <Compile Include="Assets\Script\Singletons\GameManager.cs" />
      <Compile Include="Assets\Script\Singletons\Singleton.cs" />
      <Compile Include="Assets\Script\Spawners\BaseSpawner.cs" />

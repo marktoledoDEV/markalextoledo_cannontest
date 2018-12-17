@@ -19,6 +19,11 @@ public class BaseTarget : MonoBehaviour
 		InitializeTarget();
 	}
 
+	private void OnDestroy()
+	{
+		targetDestroyedSubscriber();
+	}
+
 	//Setup Target dependacies
 	protected virtual void InitializeTarget()
 	{
@@ -34,14 +39,18 @@ public class BaseTarget : MonoBehaviour
 		}
 	}
 
-	//Delegates
-	public delegate void onTargetInitialize();
-	private onTargetInitialize targetInitializeSubscriber;
-	public onTargetInitialize TargetInitializeSubscriber 
+	//Other classes can subscribe to when the target is destroyed
+	public delegate void onTargetDestroyed();
+	private onTargetDestroyed targetDestroyedSubscriber;
+	public onTargetDestroyed TargetDestroyedSubscriber 
 	{
 		get
 		{ 
-			return TargetInitializeSubscriber; 
+			return targetDestroyedSubscriber; 
+		}
+		set
+		{
+			targetDestroyedSubscriber += value;
 		}
 	}
 

@@ -20,7 +20,7 @@ public class ShootingRangeSpawner : BaseSpawner
 	}
 
 	//spawns the spawneePrefab in random location using the SpawnGrid as a guide
-	public void GenerateShootingRange()
+	public List<BaseTarget> GenerateShootingRange()
 	{
 		ResetSpawnGrid();
 		List<BaseTarget> targetList = new List<BaseTarget>();
@@ -43,6 +43,7 @@ public class ShootingRangeSpawner : BaseSpawner
 					float yPos = rndHeight + spawnSpacing;
 					Vector3 spawnPosition = new Vector3(xPos, yPos, 0.0f);
 					GameObject spawnedTarget = Spawn(spawnPosition, transform.rotation,transform);
+					targetList.Add(spawnedTarget.GetComponent<BaseTarget>());
 					spawnedTarget.transform.localPosition = spawnPosition; //this line will make sure the target is spawned relative to the spawner gameObject
 					
 					//once completed this element in the SpawnGrid will marked as true and should not be used again
@@ -51,6 +52,7 @@ public class ShootingRangeSpawner : BaseSpawner
 				}
 			}
 		}
+		return targetList;
 	}
 	
 	//create a fresh new SpawnGrid to use

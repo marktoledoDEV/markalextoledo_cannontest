@@ -7,12 +7,12 @@ public enum GameModesType { Horde, ShootingPractice }
 
 public interface IBaseGameModeController 
 {
-    void SetupController();//called when gamemodeController is activated
+    void SetupController();
     void DesetupController();
 }
 
 //Defines all the properties and behaviours any GameModeController will have
-public abstract class BaseGameModeController<tGameModel> : MonoBehaviour , IBaseGameModeController where tGameModel : BaseGameModeModel
+public abstract class BaseGameModeController<tGameModel> : MonoBehaviour, IBaseGameModeController where tGameModel : BaseGameModeModel
 {
     public GameModesType GameMode; //The type of gameMode this gamemodecontroller is. Use it like an ID
     public tGameModel GameModel; // The GameModel this gamemodecontroller needs to run the game loop properly
@@ -27,31 +27,42 @@ public abstract class BaseGameModeController<tGameModel> : MonoBehaviour , IBase
         UpdateController();
     }
 
+    private void OnDisable()
+    {
+        DesetupController();
+    }
+
+    //Define All the methods outline in the iBaseGameModeController interface;
     void IBaseGameModeController.SetupController()
     {
         this.SetupController();
-        gameObject.SetActive(true);
     }
-    protected abstract void SetupController();
-
-    public abstract void UpdateController(); //runs the game logic of the gameModeController
 
     void IBaseGameModeController.DesetupController()
     {
-        this.DesetupController();
-        gameObject.SetActive(false);
+        this.SetupController();
     }
-    protected virtual void DesetupController(){ } 
+
+    //Sets up the gameplay loop 
+    protected virtual void SetupController()
+    {
+        gameObject.SetActive(true);
+    }  
+
+    public abstract void UpdateController(); //runs the game logic of the gameModeController
+
+    protected virtual void DesetupController()
+    {
+        gameObject.SetActive(false);
+        GameModel.ResetGameModel();
+    } 
     //Sets up any dependacies and executes any actions before the gameModeController is in use
     private void InitializeController()
     {
-        //provide a reference of itself to the GameManager
         if(GameManager.instance != null)
         {
-            BaseGameModeController<tGameModel> controller = gameObject.GetComponent<BaseGameModeController<tGameModel>>();
-            GameManager.instance.GameControllerDictionary.Add(GameMode,controller);
+            GameManager.instance.GameControllerDictionary.Add(GameMode, this);
         }
-
         gameObject.SetActive(false);
     }
 }

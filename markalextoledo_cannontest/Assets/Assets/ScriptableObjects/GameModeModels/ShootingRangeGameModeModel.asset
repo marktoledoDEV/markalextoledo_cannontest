@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb578c6fb4e4c8741932989852c12ebb, type: 3}
   m_Name: ShootingRangeGameModeModel
   m_EditorClassIdentifier: 
+  isDone: 1
   numberOfTargets: 10
   gridWidth: 5
   gridHeight: 5
+  TimeGiven: 60
+  targetsKilled: 10
+  gameTimer: 39.7812

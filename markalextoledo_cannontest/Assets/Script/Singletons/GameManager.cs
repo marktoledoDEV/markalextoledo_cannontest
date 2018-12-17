@@ -11,17 +11,14 @@ public class GameManager : Singleton<GameManager>
 	public Dictionary<GameModesType,IBaseGameModeController> GameControllerDictionary = new Dictionary<GameModesType, IBaseGameModeController>();
 	private IBaseGameModeController currentActiveGameController = null;
 
+	protected void Start()
+	{
+		ChangeGameModes(GameModesType.ShootingPractice);	
+	}
+
 	protected override void SingletonAwake()
 	{
 		Debug.Log(gameObject.name + " has been Initialized");
-	}
-
-	private void Update()
-	{
-		if(Input.GetKey(KeyCode.Q))
-		{
-			ChangeGameModes(GameModesType.ShootingPractice);
-		}
 	}
 
 	//a getter for the currentActiveGameController

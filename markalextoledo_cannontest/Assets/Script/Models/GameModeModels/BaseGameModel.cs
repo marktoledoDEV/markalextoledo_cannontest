@@ -8,13 +8,18 @@ using UnityEditor;
 [System.Serializable]
 public abstract class BaseGameModeModel : ScriptableObject
 {   
+
+    public bool isDone = false;
     private void Awake()
     {
         ResetGameModel();
     }
 
     //revert any changes the gameModel might have taken
-    public abstract void ResetGameModel();
+    public virtual void ResetGameModel()
+    {
+        isDone = false;
+    }
 
     protected static BaseGameModeModel CreateGameModeModel<tGameModel>() where tGameModel : BaseGameModeModel
     {
