@@ -8,16 +8,24 @@ public class GameManager : Singleton<GameManager>
 	public CannonController player; //a reference to the player for any class to access
 
 	//Store different gamecontrollers here
-	public Dictionary<GameModesType,BaseGameModeController<BaseGameModeModel>> GameControllerDictionary = new Dictionary<GameModesType, BaseGameModeController<BaseGameModeModel>>();
-	private BaseGameModeController<BaseGameModeModel> currentActiveGameController = null;
+	public Dictionary<GameModesType,IBaseGameModeController> GameControllerDictionary = new Dictionary<GameModesType, IBaseGameModeController>();
+	private IBaseGameModeController currentActiveGameController = null;
 
 	protected override void SingletonAwake()
 	{
 		Debug.Log(gameObject.name + " has been Initialized");
 	}
 
+	private void Update()
+	{
+		if(Input.GetKey(KeyCode.Q))
+		{
+			ChangeGameModes(GameModesType.ShootingPractice);
+		}
+	}
+
 	//a getter for the currentActiveGameController
-	public BaseGameModeController<BaseGameModeModel> GetCurretGameModeController()
+	public IBaseGameModeController GetCurretGameModeController()
 	{
 		return currentActiveGameController;
 	}
@@ -28,14 +36,12 @@ public class GameManager : Singleton<GameManager>
 	{
 		if(currentActiveGameController != null)
 		{
-			currentActiveGameController.gameObject.SetActive(false);
 			currentActiveGameController.DesetupController();
 		}
 
 		bool changeSuccessful = GameControllerDictionary.TryGetValue(mode, out currentActiveGameController);
 		if(changeSuccessful)
 		{
-			currentActiveGameController.gameObject.SetActive(true);
 			currentActiveGameController.SetupController();
 		}
 		else

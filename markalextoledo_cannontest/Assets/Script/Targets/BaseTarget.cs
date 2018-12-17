@@ -34,6 +34,17 @@ public class BaseTarget : MonoBehaviour
 		}
 	}
 
+	//Delegates
+	public delegate void onTargetInitialize();
+	private onTargetInitialize targetInitializeSubscriber;
+	public onTargetInitialize TargetInitializeSubscriber 
+	{
+		get
+		{ 
+			return TargetInitializeSubscriber; 
+		}
+	}
+
 	public virtual void TargetDies()
 	{
 		Destroy(gameObject);

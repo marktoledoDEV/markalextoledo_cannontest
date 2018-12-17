@@ -17,12 +17,13 @@ public class ShootingRangeSpawner : BaseSpawner
 	protected override void InitializeSpawner()
 	{
 		ResetSpawnGrid();
-		GenerateShootingRange();
 	}
 
 	//spawns the spawneePrefab in random location using the SpawnGrid as a guide
 	public void GenerateShootingRange()
 	{
+		ResetSpawnGrid();
+		List<BaseTarget> targetList = new List<BaseTarget>();
 		for(int i = 0; i < spawnAmount; i++)
 		{
 			//while loop will keep trying randomly generating indexes to find an element
@@ -63,5 +64,12 @@ public class ShootingRangeSpawner : BaseSpawner
 				SpawnGrid[i,j] = false;
 			}
 		}
+	}
+
+	//Getters and Setters
+	public void AdjustShootinRangeSpawnerValues(int height = -1, int width = -1)
+	{
+		gridHeight = (height >= 0) ? height : gridHeight;
+		gridWidth = (width >= 0) ? width : gridWidth; 
 	}
 }

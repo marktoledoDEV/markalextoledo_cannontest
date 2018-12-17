@@ -7,7 +7,7 @@ public abstract class BaseSpawner : MonoBehaviour
 {
 	[Header("Spawner Properties")]
 	[SerializeField] private GameObject spawneePrefab;
-	public int spawnAmount = 10; //howmuch spawneePrefab will be spawned;
+	public int spawnAmount = 10; //how much spawneePrefab will be spawned;
 
 	private void Awake()
 	{
@@ -26,4 +26,7 @@ public abstract class BaseSpawner : MonoBehaviour
 	{
 		return Instantiate(spawneePrefab,position, rotation,parent);
 	}
+
+	//Getters and Setters
+	public void SetSpawnAmount(int amount) { spawnAmount = amount; }
 }
