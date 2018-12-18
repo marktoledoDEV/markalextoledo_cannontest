@@ -6,7 +6,8 @@ using UnityEngine;
 public class CannonController : MonoBehaviour 
 {
 	[Header("Cannon Properties")]
-	[SerializeField] private int health = 10; //the amount of damage the cannon can take before losing;
+	public int Health = 10; //the amount of health the cannon will start out with
+	private int health = 10; //the amount of health the cannon currently has
 	public int PlayerHealth { get{ return health; } }
 
 	[SerializeField] private float horizontalRotationSpeed = 1.0f; //the speed of Cannon moving left and right
@@ -25,6 +26,7 @@ public class CannonController : MonoBehaviour
 
 	private void Awake()
 	{
+		ResetHealth();
 		GameManager.instance.player = this; //give reference to itself so other classes can have an easy way of accessing the player
 	}
 
@@ -50,6 +52,11 @@ public class CannonController : MonoBehaviour
 		{
 			Instantiate(cannonballPrefab,spawnPoint.position, cannonPivot.rotation);
 		}
+	}
+
+	public void ResetHealth()
+	{
+		health = Health;
 	}
 
 	public void TakeDamage(int damage)

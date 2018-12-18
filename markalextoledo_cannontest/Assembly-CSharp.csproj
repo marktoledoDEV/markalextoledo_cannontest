@@ -64,6 +64,7 @@
      <Compile Include="Assets\Script\MenuStateMachine\MenuState.cs" />
      <Compile Include="Assets\Script\MenuStateMachine\MenuStateMachine.cs" />
      <Compile Include="Assets\Script\MenuStateMachine\ShootingPracticeCanvasGroup.cs" />
+     <Compile Include="Assets\Script\Misc\DestroyAfterTime.cs" />
      <Compile Include="Assets\Script\Models\GameModeModels\BaseGameModel.cs" />
      <Compile Include="Assets\Script\Models\GameModeModels\HordeGameModeModel.cs" />
      <Compile Include="Assets\Script\Models\GameModeModels\ShootingPracticeGameModel.cs" />

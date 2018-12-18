@@ -12,8 +12,10 @@ public class HordeMovingState : BaseHordeState
 	{
 		base.OnStateUpdate(animator,stateInfo,layerIndex);
 		
-		hordeModel.hordeNavMeshAgent.SetDestination(hordeModel.PlayerCannon.position);
-
+		if(hordeModel.hordeNavMeshAgent.isActiveAndEnabled)
+		{
+			hordeModel.hordeNavMeshAgent.SetDestination(hordeModel.PlayerCannon.position);
+		}
 		float distance = Vector3.Distance(hordeModel.transform.position, hordeModel.PlayerCannon.position);
 		if(distance <= hordeModel.distanceFromCannon)
 		{

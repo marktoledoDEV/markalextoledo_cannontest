@@ -15,9 +15,10 @@ public class HordeTarget : BaseTarget
 
 	[SerializeField] private float hordeMoveSpeed = 5.0f;
 
-	//Components Required
+	[Header("References and Components Required")]
 	private NavMeshAgent nmAgent;
 	public NavMeshAgent hordeNavMeshAgent { get{ return nmAgent; } }
+	public GameObject ExplosionParticlePrefab; //Will spawn when target dies
 
 	//References Needed
 	private Transform playerCannon; // will move towards the cannon
@@ -33,6 +34,5 @@ public class HordeTarget : BaseTarget
 		nmAgent.stoppingDistance = distanceFromCannon;
 		
 	}
-
 	
 }

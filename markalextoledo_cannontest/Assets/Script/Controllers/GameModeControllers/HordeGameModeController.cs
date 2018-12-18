@@ -28,10 +28,21 @@ public class HordeGameModeController : BaseGameModeController<HordeGameModeModel
             GameManager.instance.menuStateMachine.SetTrigger("win");
             GameModel.isDone = true;
         }
+
+        HealthWatchUpdate();
     }
 
     public void UpdateKillCount()
     {
         GameModel.TargetKilled++;
     }
+
+    private void HealthWatchUpdate()
+	{
+		if(GameManager.instance.player.PlayerHealth <= 0)
+		{
+            GameModel.isDone = true;
+			GameManager.instance.menuStateMachine.SetTrigger("lose");
+		}
+	}
 }

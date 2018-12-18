@@ -18,6 +18,7 @@ public class HordeAttackState : BaseHordeState
 		{
 			delayTimer = 0.0f;
 			HordeTargetExplodes();
+			Instantiate(hordeModel.ExplosionParticlePrefab,hordeModel.transform.position,hordeModel.transform.rotation);
 			Destroy(hordeModel.gameObject);
 		}
 	}
