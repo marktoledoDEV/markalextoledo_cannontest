@@ -58,9 +58,12 @@
      <Compile Include="Assets\Script\Controllers\GameModeControllers\BaseGameModeController.cs" />
      <Compile Include="Assets\Script\Controllers\GameModeControllers\HordeGameModeController.cs" />
      <Compile Include="Assets\Script\Controllers\GameModeControllers\ShootingPracticeGameModeController.cs" />
+     <Compile Include="Assets\Script\MenuStateMachine\HordeCanvasGroup.cs" />
+     <Compile Include="Assets\Script\MenuStateMachine\MainMenuCanvasGroup.cs" />
      <Compile Include="Assets\Script\MenuStateMachine\MenuCanvasGroup.cs" />
      <Compile Include="Assets\Script\MenuStateMachine\MenuState.cs" />
      <Compile Include="Assets\Script\MenuStateMachine\MenuStateMachine.cs" />
+     <Compile Include="Assets\Script\MenuStateMachine\ShootingPracticeCanvasGroup.cs" />
      <Compile Include="Assets\Script\Models\GameModeModels\BaseGameModel.cs" />
      <Compile Include="Assets\Script\Models\GameModeModels\HordeGameModeModel.cs" />
      <Compile Include="Assets\Script\Models\GameModeModels\ShootingPracticeGameModel.cs" />

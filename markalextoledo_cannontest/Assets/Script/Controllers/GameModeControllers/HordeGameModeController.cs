@@ -25,7 +25,7 @@ public class HordeGameModeController : BaseGameModeController<HordeGameModeModel
         if(GameModel.isDone) { return;}
         if(GameModel.TargetKilled >= GameModel.TargetsKillGoal)
         {
-            Debug.Log("We Win");
+            GameManager.instance.menuStateMachine.SetTrigger("win");
             GameModel.isDone = true;
         }
     }

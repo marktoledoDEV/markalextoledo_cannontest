@@ -6,15 +6,11 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager> 
 {
 	public CannonController player; //a reference to the player for any class to access
+	public MenuStateMachine menuStateMachine; //A reference to the UI so other classes can manipulate it easily;
 
 	//Store different gamecontrollers here
 	public Dictionary<GameModesType,IBaseGameModeController> GameControllerDictionary = new Dictionary<GameModesType, IBaseGameModeController>();
 	private IBaseGameModeController currentActiveGameController = null;
-
-	protected void Start()
-	{
-		ChangeGameModes(GameModesType.Horde);	
-	}
 
 	protected override void SingletonAwake()
 	{

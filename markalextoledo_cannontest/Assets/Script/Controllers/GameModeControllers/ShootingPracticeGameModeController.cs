@@ -30,7 +30,7 @@ public class ShootingPracticeGameModeController : BaseGameModeController<Shootin
         {
             if(GameModel.targetsKilled >= GameModel.numberOfTargets)
             {
-                Debug.Log("YOU WIN");
+                GameManager.instance.menuStateMachine.SetTrigger("win");
                 GameModel.isDone = true;
                 return;
             }

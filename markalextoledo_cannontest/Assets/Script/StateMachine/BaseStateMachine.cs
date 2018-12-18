@@ -16,6 +16,11 @@ public abstract class BaseStateMachine : MonoBehaviour
 		InitializeStates();
 	}
 
+	public void SetTrigger(string trigger)
+	{
+		smAnimator.SetTrigger(trigger);
+	}
+
 	//Will bind any states from the animator together to make it easily accessible to the state machine
 	protected abstract void InitializeStates();
 	//Will be called in a statemachine controller to refresh the statemachine

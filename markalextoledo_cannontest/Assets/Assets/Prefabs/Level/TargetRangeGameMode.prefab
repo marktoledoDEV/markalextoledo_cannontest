@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4698212746528910}
+  - component: {fileID: 674841166}
   m_Layer: 0
   m_Name: TargetRangeGameMode
   m_TagString: Untagged
@@ -28,9 +29,25 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4943313319461320}
+  - {fileID: 1338011717537210421}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674841166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756049567759442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10776c85bae8844c886ac47321ee80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameMode: 1
+  GameModel: {fileID: 11400000, guid: 33e1687b57b040644bff00bbcf0f181c, type: 2}
+  targetSpawner: {fileID: 3174077390798510667}
 --- !u!1 &1923549333708280
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,3 +139,52 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6902367195084597596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1338011717537210421}
+  - component: {fileID: 3174077390798510667}
+  m_Layer: 0
+  m_Name: GridSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1338011717537210421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6902367195084597596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.5, y: -8.3, z: -6.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4698212746528910}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3174077390798510667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6902367195084597596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbc009a526e9724f9792057e4bc31db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawneePrefab: {fileID: 1729985854778324, guid: c5355b1ba3a1a4849804c7df06e4acb3,
+    type: 3}
+  spawnAmount: 10
+  gridHeight: 10
+  gridWidth: 10
+  spawnSpacing: 10

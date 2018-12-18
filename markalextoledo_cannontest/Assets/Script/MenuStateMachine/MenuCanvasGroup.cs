@@ -27,5 +27,11 @@ public class MenuCanvasGroup : MonoBehaviour
 	public virtual void OnStateEnter() { }
 	protected virtual void OnStateUpdate() { }
 	public virtual void OnStateExit() { }
+
+	//Called as an AnimationEvent
+	public void UISetTrigger(string trigger)
+	{
+		GameManager.instance.menuStateMachine.SetTrigger(trigger);
+	}
 }
 

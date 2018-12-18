@@ -14,6 +14,11 @@ public class MenuStateMachine : BaseStateMachine
 	//Custom Methods
 	protected override void InitializeStates()
 	{	
+		if(GameManager.instance != null)
+		{
+			GameManager.instance.menuStateMachine = this;
+		}
+
 		//Find all the MenuCanvasGroups and added them to a Dictionary for future use
 		menuDictionary = new Dictionary<MenuStateName, MenuCanvasGroup>();
 		MenuCanvasGroup[] menuCanvasCroups = GetComponentsInChildren<MenuCanvasGroup>();

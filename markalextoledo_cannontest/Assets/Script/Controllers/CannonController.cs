@@ -7,6 +7,7 @@ public class CannonController : MonoBehaviour
 {
 	[Header("Cannon Properties")]
 	[SerializeField] private int health = 10; //the amount of damage the cannon can take before losing;
+	public int PlayerHealth { get{ return health; } }
 
 	[SerializeField] private float horizontalRotationSpeed = 1.0f; //the speed of Cannon moving left and right
 	[SerializeField] private float verticalRotationSpeed = 1.0f;  //the speed of Cannon moving up and down

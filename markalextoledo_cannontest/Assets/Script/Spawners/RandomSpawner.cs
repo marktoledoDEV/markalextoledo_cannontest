@@ -55,7 +55,6 @@ public class RandomSpawner : BaseSpawner
     private void SetNewTime()
     {
         spawnTime = Random.Range(minSpawnTime,maxSpawnTime);
-        Debug.LogWarning("New SpawnTime: " + spawnTime);
     }
 
     public BaseTarget.onTargetDestroyed onTargetDestroyedSubscriber;
