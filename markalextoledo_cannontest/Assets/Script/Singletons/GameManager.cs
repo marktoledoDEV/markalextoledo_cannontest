@@ -12,6 +12,12 @@ public class GameManager : Singleton<GameManager>
 	public Dictionary<GameModesType,IBaseGameModeController> GameControllerDictionary = new Dictionary<GameModesType, IBaseGameModeController>();
 	private IBaseGameModeController currentActiveGameController = null;
 
+	private void OnDestroy()
+	{
+		//ResetTime
+		Time.timeScale = 1.0f;
+	}
+
 	protected override void SingletonAwake()
 	{
 		Debug.Log(gameObject.name + " has been Initialized");

@@ -40,7 +40,7 @@ public abstract class BaseGameModeController<tGameModel> : MonoBehaviour, IBaseG
 
     void IBaseGameModeController.DesetupController()
     {
-        this.SetupController();
+        this.DesetupController();
     }
 
     //Sets up the gameplay loop 
