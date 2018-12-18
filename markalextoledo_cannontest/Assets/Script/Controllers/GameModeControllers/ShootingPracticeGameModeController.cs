@@ -47,13 +47,13 @@ public class ShootingPracticeGameModeController : BaseGameModeController<Shootin
     //Calculates how much time the player has to solve to complete the task
     private void UpdateGameTimer()
     {
-        Debug.Log("[Shooting Range] Time Left: " + GameModel.gameTimer);
         GameModel.gameTimer -= Time.deltaTime;
         if(GameModel.gameTimer <= 0.0f)
         {
             GameModel.gameTimer = 0.0f;
             GameModel.isDone = true;
             Debug.Log("TIME RAN OUT");
+            GameManager.instance.menuStateMachine.SetTrigger("lose");
         }
     }
 
